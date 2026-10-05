@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeChronicle - Article Detail</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           1. MOSAIC GALLERY (CSS GRID 2D)
+           Thay thế toàn bộ position: absolute và height cố định cũ
+           ========================================================================== */
+        .mosaic-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 200px 200px;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .photo-main {
+            grid-row: span 2;
+            background: #ff9999;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+            min-height: 200px;
+        }
+
+        .photo-sub-1 {
+            background: #99ccff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .photo-sub-2 {
+            background: #99ff99;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Responsive Breakpoint cho Mobile (Dưới 768px): Chuyển thành 1 cột */
+        @media (max-width: 767.98px) {
+            .mosaic-gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .photo-main {
+                grid-row: span 1;
+                height: 250px;
+            }
+
+            .photo-sub-1, .photo-sub-2 {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container my-5 bg-white p-4 p-md-5 rounded shadow-sm">
+        
+        <!-- VÙNG 1: AUTHOR META-INFO (FLEXBOX)
+             Xóa sạch float/overflow:hidden. Dùng Bootstrap Flexbox Utility. -->
+        <div class="author-section d-flex flex-wrap align-items-center justify-content-between pb-3 mb-4 border-bottom gap-3">
+            <div class="d-flex align-items-center gap-3">
+                <div class="author-avatar bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="width: 60px; height: 60px;">
+                    JD
+                </div>
+                <div>
+                    <h5 class="m-0 fw-bold text-dark">Jane Doe</h5>
+                    <small class="text-muted">Published on Oct 25, 2026</small>
+                </div>
+            </div>
+            <div class="share-buttons d-flex gap-2">
+                <button class="btn btn-primary btn-sm">Share Facebook</button>
+                <button class="btn btn-info btn-sm text-white">Tweet</button>
+            </div>
+        </div>
+
+        <!-- VÙNG 2: MOSAIC GALLERY (CSS GRID)
+             Không dùng position: absolute hay height cứng, tự co giãn theo nội dung. -->
+        <div class="mosaic-gallery">
+            <div class="photo-main">Main Photo</div>
+            <div class="photo-sub-1">Sub Photo 1</div>
+            <div class="photo-sub-2">Sub Photo 2</div>
+        </div>
+
+        <!-- NỘI DUNG BÀI VIẾT -->
+        <div class="article-content my-4 text-secondary leading-relaxed">
+            <p class="fs-5 text-dark fw-semibold">
+                Nội dung bài viết được bảo vệ hoàn toàn khỏi hiện tượng đè lấn nhờ CSS Grid tự động tính toán chiều cao dòng theo luồng tài liệu (Document Flow).
+            </p>
+            <p>
+                Khi xem trên màn hình điện thoại di động, các khối ảnh trong Mosaic Gallery sẽ tự động xếp chồng theo 1 cột duy nhất mà không bị đè nát chữ hay tràn viền.
+            </p>
+        </div>
+
+        <hr class="my-5">
+
+        <!-- VÙNG 3: RECOMMENDED ARTICLES (BOOTSTRAP GRID SYSTEM)
+             Sử dụng hệ thống lưới chuẩn Bootstrap với các breakpoint tự động co giãn. -->
+        <section class="recommended-section">
+            <h3 class="fw-bold mb-4 text-dark">Recommended Articles</h3>
+            <div class="row g-3">
+                <!-- Thẻ 1 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-light-subtle shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title h6 fw-bold">Article 1</h5>
+                            <p class="card-text text-muted small flex-grow-1">Bí quyết phối màu bất đối xứng trong thiết kế tạp chí hiện đại.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2 w-100">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thẻ 2 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-light-subtle shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title h6 fw-bold">Article 2</h5>
+                            <p class="card-text text-muted small flex-grow-1">Hành trình chuyển đổi từ Float truyền thống sang Flexbox & Grid.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2 w-100">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thẻ 3 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-light-subtle shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title h6 fw-bold">Article 3</h5>
+                            <p class="card-text text-muted small flex-grow-1">Nghệ thuật dàn trang Mosaic Gallery chuẩn UI/UX Responsive.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2 w-100">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thẻ 4 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-light-subtle shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title h6 fw-bold">Article 4</h5>
+                            <p class="card-text text-muted small flex-grow-1">Tối ưu hóa điểm ngắt Breakpoints trên các thiết bị di động.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2 w-100">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
